@@ -1,0 +1,47 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+- apiGroups:
+  - storage.populator.io
+  resources:
+  - outscales3populators
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - storage.populator.io
+  resources:
+  - outscales3populators/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - storage.populator.io
+  resources:
+  - outscales3populators/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - storage.populator.io
+  resources:
+  - outscles3populators
+  verbs:
+  - get
+  - list
+  - update
+  - watch
